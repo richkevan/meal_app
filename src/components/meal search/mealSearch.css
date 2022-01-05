@@ -1,0 +1,22 @@
+.meal-search-results {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    height: 200px;
+}
+
+.recipeRow {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    height: 100%;
+    width: 20vh;
+    padding: 5rem 1rem 0rem 1rem;
+    margin: 0.5rem;
+    border: 2px solid #ccc;
+}
+
+.recipeRow h3 {
+    font-size: 1.25rem;
+    text-align: center;
+}
