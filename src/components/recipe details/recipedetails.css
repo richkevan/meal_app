@@ -1,0 +1,12 @@
+li {
+    list-style: none;
+    text-align: left;
+}
+
+.recipe-details {
+    margin: 20px 100px
+}
+
+.Instructions {
+    text-align: justify;
+}

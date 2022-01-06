@@ -44,7 +44,9 @@ function App() {
             <Route path="str=:letter" element={<AlphaMealList />} />
             <Route path="id=:id" element={<RecipeDetails />} />
           </Route>
-          <Route path="/search" element={<MealSearch />} />
+          <Route path="/search" element={<MealSearch />} >
+            <Route path=":search" element={<MealSearch />} />
+          </Route>
         </Routes>
     </div>
   );

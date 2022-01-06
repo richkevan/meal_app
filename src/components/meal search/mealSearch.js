@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import './mealSearch.css'
 
 
 const MealSearch = () => {
     const [mealSearch, setMealSearch] = React.useState('');
     const [mealSearchResults, setMealSearchResults] = React.useState([]);
+    const { search } = useParams()
+
+    useEffect(() => {
+        const fetchSearch = async () => {
+            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+            .then(response => response.json())
+            .then(data => {setMealSearchResults(data.meals)})
+        }
+        fetchSearch();
+        console.log(mealSearchResults, search)
+    }, [])
 
     const onChange = (e) => {
         setMealSearch(e.target.value);
@@ -12,7 +24,6 @@ const MealSearch = () => {
     }
 
     const onSubmit = (e) => {
-        console.log(1)
         e.preventDefault();
         const getMeals = async () => {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealSearch}`)
